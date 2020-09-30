@@ -1,0 +1,56 @@
+cp-Copia de archivos:
+Sintaxis: cp [atributo] "archivo" "directorio"
+
+mv-Mueve archivos y directorios 
+Sintaxis:mv [atributo] "fuente" "destino"
+
+rm-Elimina uno o mas archivos
+Sintaxis:rm[opciones] "archivos"
+
+mkdir-Crea directorios
+Sintaxis:mkdir [atributo] "nombre_directorio"
+
+rmdir-Borrar directorio,siempre y cuando este vacio.
+Sintaxis:rmdir [atributo] "nombre_directorio"
+
+ls-Lista todos los archivos de un directorio.
+Sintaxis:ls [atributo] "nombre_directorio"
+
+cd-Cambiar de directorio
+Sintaxis:cd "directorio"
+
+pwd-Mostrar la ruta del directorio de trabajo actual.
+Sintaxis:pwd
+
+chmod-Modifica los permisos de uno o mas archivos o directorios
+Sintaxis:chmod [atributo] [permiso] "archivo"
+Quien:
+u: usuario
+g: grupo
+o: otros
+a: todos
+Accion:
++: agregar
+-: quitar
+=: asignar
+Permiso:
+r: lectura
+w: escritura
+x: ejecutar
+s: ajustar con el ID del usuario.
+
+cat-muestra el coontenido de un archivo por pantalla.
+Sintaxis:cat [atributos] "archivo"
+
+find-Muestra una lista con los archivos que coinciden con un criterio especifico
+Sintaxis:find [ruta] [opciones]
+
+grep-Buscar en uno o mas archivos las lineas que coincidan con una expresion regular.
+Sintaxis:grep [opciones[ modelo archivos
+
+lpr-Imprime el contenido de un archivo
+Sintaxis:lpr [atributo] "archivo"
+
+tree-Lista todos los directorios a partir del directorio actual o del directorio indicado
+Sintaxis:tree [directorio]
+
