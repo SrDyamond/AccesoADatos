@@ -11,7 +11,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         File file = new File("C:\\Users\\Lenovo\\Desktop\\ArchivoNombres.txt");
         String input = "";
-
         FileWriter fileWriter = new FileWriter(file);
 
         while (input.equals("salir") == false) {
