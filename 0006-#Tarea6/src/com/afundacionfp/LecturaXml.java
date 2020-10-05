@@ -11,22 +11,26 @@ import org.w3c.dom.NodeList;
 public class LecturaXml {
     public static void main(String args[]) {
         try {
-            File archivo = new File("C:\\Users\\Lenovo\\Desktop\\ListaViajes.xml");
+           // File archivo = new File("C:\\Users\\Lenovo\\Desktop\\ListaViajes.xml");
+            File archivo = new File("C:\\Users\\dyang\\OneDrive\\Escritorio\\ListaViajes.xml");
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = dbf.newDocumentBuilder();
             Document document = documentBuilder.parse(archivo);
             document.getDocumentElement().normalize();
             System.out.println("Elemento raiz:" + document.getDocumentElement().getNodeName());
-            NodeList viajes = document.getElementsByTagName("empleado");
-            for (int temp = 0; temp < viajes.getLength(); temp++) {
-                Node nodo = viajes.item(temp);
+            NodeList viaje = document.getElementsByTagName("viaje");
+            for (int temp = 0; temp < viaje.getLength(); temp++) {
+                Node nodo = viaje.item(temp);
                 System.out.println("Elemento:" + nodo.getNodeName());
                 if (nodo.getNodeType() == Node.ELEMENT_NODE) {
                     Element element = (Element) nodo;
-                    System.out.println("id: " + element.getAttribute("id"));
-                    System.out.println("Nombre: " + element.getElementsByTagName("nombre").item(0).getTextContent());
-                    System.out.println("username: " + element.getElementsByTagName("username").item(0).getTextContent());
-                    System.out.println("password: " + element.getElementsByTagName("321423").item(0).getTextContent());
+                    System.out.println("CiudadOrigen: " + element.getElementsByTagName("CiudadOrigen")).item(0).getTextContent());
+                    System.out.println("CiudadDestino: " + element.getElementsByTagName("CiudadDestino").item(0).getTextContent());
+                    System.out.println("ListaParadas: " + element.getElementsByTagName("ListaParadas").item(0).getTextContent());
+                    System.out.println("Parada: " + element.getElementsByTagName("Parada").item(0).getTextContent());
+                    System.out.println("Ciudad: " + element.getElementsByTagName("Ciudad").item(0).getTextContent());
+                    System.out.println("TiempoDescanso: " + element.getElementsByTagName("TiempoDescanso").item(0).getTextContent());
+                    System.out.println("TiempoViaje: " + element.getElementsByTagName("TiempoViaje").item(0).getTextContent());
                 }
             }
         } catch (Exception e) {
