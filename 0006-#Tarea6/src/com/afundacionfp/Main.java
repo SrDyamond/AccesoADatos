@@ -24,7 +24,7 @@ public class LecturaXml {
                 System.out.println("Elemento:" + nodo.getNodeName());
                 if (nodo.getNodeType() == Node.ELEMENT_NODE) {
                     Element element = (Element) nodo;
-                    System.out.println("CiudadOrigen: " + element.getElementsByTagName("CiudadOrigen")).item(0).getTextContent());
+                    System.out.println("CiudadOrigen: " + element.getElementsByTagName("CiudadOrigen").item(0).getTextContent());
                     System.out.println("CiudadDestino: " + element.getElementsByTagName("CiudadDestino").item(0).getTextContent());
                     System.out.println("ListaParadas: " + element.getElementsByTagName("ListaParadas").item(0).getTextContent());
                     System.out.println("Parada: " + element.getElementsByTagName("Parada").item(0).getTextContent());
