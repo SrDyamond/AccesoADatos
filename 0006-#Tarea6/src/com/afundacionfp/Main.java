@@ -26,11 +26,13 @@ public class Main {
                     Element element = (Element) nodo;
                     System.out.println("CiudadOrigen: " + element.getElementsByTagName("CiudadOrigen").item(0).getTextContent());
                     System.out.println("CiudadDestino: " + element.getElementsByTagName("CiudadDestino").item(0).getTextContent());
-                    if ((element.getElementsByTagName("ListaParadas").item(0).getTextContent()) != null));{
+                    if ((element.getElementsByTagName("ListaParadas").item(0).getTextContent()) != null) {
                         System.out.println("ListaParadas: " + element.getElementsByTagName("ListaParadas").item(0).getTextContent());
+                        if ((element.getElementsByTagName("Parada").item(0).getTextContent()) != null) {
+                            System.out.println("Parada: " + element.getElementsByTagName("Parada").item(0).getTextContent());
+                            System.out.println("Ciudad: " + element.getElementsByTagName("Ciudad").item(0).getTextContent());
+                        }
                     }
-                    System.out.println("Parada: " + element.getElementsByTagName("Parada").item(0).getTextContent());
-                    System.out.println("Ciudad: " + element.getElementsByTagName("Ciudad").item(0).getTextContent());
                     System.out.println("TiempoDescanso: " + element.getElementsByTagName("TiempoDescanso").item(0).getTextContent());
                     System.out.println("TiempoViaje: " + element.getElementsByTagName("TiempoViaje").item(0).getTextContent());
                 }
