@@ -31,6 +31,7 @@ public class Main {
                         if ((element.getElementsByTagName("Parada").item(0).getTextContent()) != null) {
                             System.out.println("Parada: " + element.getElementsByTagName("Parada").item(0).getTextContent());
                             System.out.println("Ciudad: " + element.getElementsByTagName("Ciudad").item(0).getTextContent());
+
                         }
                     }
                     System.out.println("TiempoDescanso: " + element.getElementsByTagName("TiempoDescanso").item(0).getTextContent());
