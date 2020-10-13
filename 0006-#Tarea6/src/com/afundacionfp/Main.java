@@ -47,6 +47,7 @@ public class Main {
                             {
                                 Element resultE = (Element) resultNode;
                                 tiempo = resultE.getTextContent();
+                                System.out.println("Tiempo");
                                 System.out.println(tiempo);
                             }
                         }
@@ -56,11 +57,7 @@ public class Main {
                         System.out.println("No existen paradas");
                     }
 
-                    System.out.println("Tiempo del viaje: "
-                            + element
-                            .getElementsByTagName("TiempoViaje")
-                            .item(0)
-                            .getTextContent());
+                    System.out.println("Tiempo del viaje: " + element.getElementsByTagName("TiempoViaje").item(0).getTextContent());
 
                     viajesTotales++;
 
