@@ -13,7 +13,7 @@ public class Main {
     public static void main(String args[]) {
 
         int viajesTotales = 0;
-        String tiempo = null;
+        String tiempoparada = null;
 
         try {
             File archivo = new File("C:\\Users\\Lenovo\\Desktop\\Viajes.xml");
@@ -46,10 +46,10 @@ public class Main {
                             if(resultNode.getNodeType() == Node.ELEMENT_NODE)
                             {
                                 Element resultE = (Element) resultNode;
-                                tiempo = resultE.getTextContent();
+                                tiempoparada = resultE.getTextContent();
                                 System.out.println("Parada");
                                 System.out.println("Tiempo");
-                                System.out.println(tiempo);
+                                System.out.println(tiempoparada);
                             }
                         }
                     }
