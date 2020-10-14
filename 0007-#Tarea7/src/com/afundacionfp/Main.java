@@ -14,7 +14,6 @@ public class Main {
 
         int viajesTotales = 0;
         String tiempoparada = null;
-
         try {
             File archivo = new File("C:\\Users\\Lenovo\\Desktop\\Viajes.xml");
             //File archivo = new File("C:\\Users\\dyang\\OneDrive\\Escritorio\\Viajes.xml");
