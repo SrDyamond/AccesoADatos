@@ -18,6 +18,7 @@ public class Main {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
 
+
         File inputFile = new File("C:\\Users\\Lenovo\\Desktop\\lista_viajes.xml");
         //File inputFile = new File("C:\\Users\\dyang\\OneDrive\\Escritorio\\lista_viajes.xml");
         Document doc = builder.parse(new FileInputStream(inputFile));
