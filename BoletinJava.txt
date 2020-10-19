@@ -1,0 +1,32 @@
+
+Ejercicio 1.1
+---------------------------
+¿Qué es un paquete Java?
+-Los paquetes son el mecanismo que usa Java para facilitar la modularidad del código.
+ Un paquete puede contener una o más definiciones de interfaces y clases
+¿Qué es una aplicación Java?
+-Es un codigo escrito en ese ese lenguaje
+¿Por qué es necesario que en una aplicación Java haya una clase cualquiera con el siguiente método?
+#public static void main(String[] args)
+-Es el metodo principal que ejecuta el codigo
+
+Ejercicio 1.2
+-------------------------
+¿Qué es bytecode Java?
+-El bytecode Java se encuentra dentro del archivo de extensión .class
+y es el tipo de instrucciones que la máquina virtual Java espera recibir,
+¿Qué es un fichero .jar?
+-Un archivo JAR (por sus siglas en inglés, en inglés Java ARchive)
+es un tipo de archivo que permite ejecutar aplicaciones y herramientas escritas en el lenguaje Java.
+
+Ejercicio 2.1
+--------------------------
+¿Cuál es la diferencia entre una clase y una instancia en Java (y, en general,
+en el paradigma de orientación a objetos)?
+-Una clase es la definición en tiempo de diseño de un objeto dentro de nuestro programa.
+O sea, es la forma de describir un pedazo de nuestro programa en forma de clase.
+
+-Un objeto o instancia es la materialización de la clase, en tiempo de ejecución.
+O sea, es cuando nuestro programa crea un objeto en base a la clase que se declaró antes
+¿Qué es un Plain Old Java Object?
+-Un objeto POJO es una instancia de una clase que no extiende ni implementa nada en especial
