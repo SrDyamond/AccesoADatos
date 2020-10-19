@@ -11,6 +11,15 @@ Ejercicio 1.1
 -Es el metodo principal que ejecuta el codigo
 
 Ejercicio 1.2
+-------------------------
+¿Qué es bytecode Java?
+-El bytecode Java se encuentra dentro del archivo de extensión .class
+y es el tipo de instrucciones que la máquina virtual Java espera recibir,
+¿Qué es un fichero .jar?
+-Un archivo JAR (por sus siglas en inglés, en inglés Java ARchive)
+es un tipo de archivo que permite ejecutar aplicaciones y herramientas escritas en el lenguaje Java.
+
+Ejercicio 2.1
 --------------------------
 ¿Cuál es la diferencia entre una clase y una instancia en Java (y, en general,
 en el paradigma de orientación a objetos)?
