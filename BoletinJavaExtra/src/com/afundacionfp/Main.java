@@ -3,11 +3,11 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        ArrayList persona = new ArrayList();
-        persona.add("Agustin Gutierrez Beira ");
-        persona.add("Jaime Gutierrez Beira");
-        persona.add("Laura Dominguez Caballero");
-       // System.out.println(persona);
+        ArrayList personas = new ArrayList();
+        personas.add("Agustin Gutierrez Beira ");
+        personas.add("Jaime Gutierrez Beira");
+        personas.add("Laura Dominguez Caballero");
+       // System.out.println(personas);
         /*
         Persona arrPersona[] = new Persona[3];
 
@@ -15,8 +15,8 @@ public class Main {
         arrPersona[1] = new Persona("Jaime","Gutierrez Beira");
         arrPersona[2] = new Persona("Laura","Dominguez Caballero");
 */
-        for(int i = 0; i< persona.size() ; i++) {
-            System.out.println(persona.get(i));
+        for (int i=0;personas;) {
+            System.out.println(personas.get(i));
         }
 /*
         if (arrPersona[0].equals(arrPersona[1])) {
