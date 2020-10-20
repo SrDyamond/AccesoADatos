@@ -9,7 +9,10 @@ public class Main {
         arrPersona[1] = new Persona("Jaime","Gutierrez Beira");
         arrPersona[2] = new Persona("Laura","Dominguez Caballero");
 
-
+        for(int i = 0; i< arrPersona.length; i++) {
+            System.out.println(arrPersona[i]);
+        }
+/*
         if (arrPersona[0].equals(arrPersona[1])) {
             System.out.println("Tienen el mismo nombre y apellidos");
         } else {
@@ -22,6 +25,6 @@ public class Main {
         } else {
             System.out.println("No tienen el mismo nombre y apellidos");
         }
-
+*/
     }
 }
