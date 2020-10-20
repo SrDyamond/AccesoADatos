@@ -1,8 +1,15 @@
 package com.afundacionfp;
 
+import java.util.Objects;
+
 public class Persona  {
     public String nombre;
     public String apellidos;
+
+    @Override
+    public boolean equals(Object obj) {
+        return this.nombre.equals(((Persona) obj).getNombre());
+    }
 
     public Persona(String nombre, String apellidos) {
         this.nombre = nombre;
