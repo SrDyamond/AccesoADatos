@@ -9,9 +9,6 @@ public class Main {
         personas.add("Laura Dominguez Caballero");
        // System.out.println(personas);
 
-        System.out.println(personas.get(0));
-        personas.remove(0);
-        System.out.println(personas.get(0));
         /*
         Persona arrPersona[] = new Persona[3];
 
@@ -19,12 +16,14 @@ public class Main {
         arrPersona[1] = new Persona("Jaime","Gutierrez Beira");
         arrPersona[2] = new Persona("Laura","Dominguez Caballero");
 */
-        /*
+
         for (String p:personas)  {
-            System.out.println(p); }
-*/
-
-
+            if (personas.esInteligente(p)) {
+                System.out.println("La persona " + personas.toString() + " es inteligente.");
+            } else {
+                System.out.println("La persona " + personas.toString() + " no es inteligente.");
+            }
+        }
 
         /*
         if (arrPersona[0].equals(arrPersona[1])) {
