@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        ArrayList personas = new ArrayList();
+        ArrayList<String> personas = new ArrayList();
         personas.add("Agustin Gutierrez Beira ");
         personas.add("Jaime Gutierrez Beira");
         personas.add("Laura Dominguez Caballero");
@@ -15,10 +15,8 @@ public class Main {
         arrPersona[1] = new Persona("Jaime","Gutierrez Beira");
         arrPersona[2] = new Persona("Laura","Dominguez Caballero");
 */
-        for (int i=0;personas;) {
-            System.out.println(personas.get(i));
-        }
-/*
+        for (String p:personas)  {System.out.println(p);} }{
+        /*
         if (arrPersona[0].equals(arrPersona[1])) {
             System.out.println("Tienen el mismo nombre y apellidos");
         } else {
