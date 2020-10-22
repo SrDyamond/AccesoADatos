@@ -2,11 +2,12 @@ package com.afundacionfp;
 
 import java.util.Objects;
 
-public class Persona  {
+public abstract class Persona  {
     public String nombre;
     public String apellidos;
 
-    public boolean esInteligente() {
+    public abstract boolean esInteligente() {
+
         return true;
     }
 
