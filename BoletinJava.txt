@@ -30,3 +30,28 @@ O sea, es la forma de describir un pedazo de nuestro programa en forma de clase.
 O sea, es cuando nuestro programa crea un objeto en base a la clase que se declaró antes
 ¿Qué es un Plain Old Java Object?
 -Un objeto POJO es una instancia de una clase que no extiende ni implementa nada en especial
+
+Ejercicio 4.1
+---------------------------
+¿Qué es una interfaz Java?
+   -Una interfaz es como Java Class, pero solo tiene constantes estáticas y método abstracto. Java usa la interfaz para implementar herencia múltiple.
+    Una clase Java puede implementar múltiples interfaces Java.
+    Todos los métodos en una interfaz son implícitamente públicos y abstractos.
+¿Cómo se define una interfaz Java? Pon un ejemplo de una interfaz (cualquier cosa)
+    -Para usar una interfaz en su clase,
+ agregue la palabra clave “implementa” después del nombre de su clase seguido del nombre de la interfaz.
+
+Ejercicio 4.2
+-------------------------
+¿Qué es una lista en Java? (java.util.List)
+    -Las listas en Java son variables que permiten almacenar grandes cantidades de datos.
+ArrayList es una implementación de la interfaz List. ¿Puedes poner ejemplos de otras implementaciones?
+
+Ejercicio 7.1.
+------------------------
+¿Qué es la pila de ejecución de un programa Java?
+    -una pila de llamadas (en inglés call stack) es una estructura dinámica de datos LIFO,
+    (una pila), que almacena la información sobre las subrutinas activas de un programa de computadora.
+Una excepción es un recurso Java para detener la ejecución cuando se produce un error no esperado.
+¿Cuál es el contenido de la traza de la pila de ejecución en una excepción cuando ésta salta?
+    -Va desde donde salta a la pila mas alta,al main().
