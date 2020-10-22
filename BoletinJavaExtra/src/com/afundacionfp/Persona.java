@@ -7,7 +7,7 @@ public  class Persona  {
     public String apellidos;
     public Curso curso;
 
-    public Persona(String nombre, String apellidos, String cursoString) {
+    public Persona(String nombre, String apellidos, String cursoString) throws CursoInvalidoException {
         this.nombre = nombre;
         this.apellidos = apellidos;
         if (cursoString.equals("OTC1")) {

@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, CursoInvalidoException {
         final int NUMERO_ALUMNOS = 10;
         final BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         List<Persona> personas = new ArrayList<>();

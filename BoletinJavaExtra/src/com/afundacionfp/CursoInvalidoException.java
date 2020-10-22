@@ -1,4 +1,4 @@
 package com.afundacionfp;
 
-public class CursoInvalidoException extends RuntimeException{
+public class CursoInvalidoException extends Exception{
 }
