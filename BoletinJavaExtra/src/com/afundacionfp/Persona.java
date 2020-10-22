@@ -2,23 +2,26 @@ package com.afundacionfp;
 
 import java.util.Objects;
 
-public abstract class Persona  {
+public  class Persona  {
     public String nombre;
     public String apellidos;
+    public Curso curso;
 
-    public abstract boolean esInteligente() {
 
-        return true;
-    }
 
     @Override
     public boolean equals(Object obj) {
         return this.nombre.equals(((Persona) obj).getNombre());
     }
 
-    public Persona(String nombre, String apellidos) {
+    public Persona(String nombre, String apellidos, Curso curso) {
         this.nombre = nombre;
         this.apellidos = apellidos;
+        this.curso = curso;
+    }
+
+    public boolean esInteligente() {
+        return this.curso == Curso.DAM2;
     }
     @Override
     public String toString() {
