@@ -1,8 +1,18 @@
 package com.afundacionfp;
 import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
+        List<Persona> personas = new ArrayList<>(
+                List.of(
+                        new Persona("Agustín", "Gutiérrez Beira"),
+                        new Persona("Jaime", "Gutiérrez Beira"),
+                        new PersonaInteligente("Laura", "Domínguez Caballero")
+                ));
+
+        /*
         ArrayList<Persona> personas = new ArrayList<Persona>();
         Persona personas1 = new Persona("Agustin","Gutierrez Beira");
         Persona personas2 = new Persona("Jaime","Gutierrez Beira");
@@ -10,6 +20,7 @@ public class Main {
         personas.add(personas1);
         personas.add(personas2);
         personas.add(personas3);
+        */
        // System.out.println(personas);
 
         /*

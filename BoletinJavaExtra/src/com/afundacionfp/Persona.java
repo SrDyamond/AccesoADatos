@@ -7,7 +7,7 @@ public class Persona  {
     public String apellidos;
 
     public boolean esInteligente() {
-        return false;
+        return true;
     }
 
     @Override
