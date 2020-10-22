@@ -7,6 +7,21 @@ public  class Persona  {
     public String apellidos;
     public Curso curso;
 
+    public Persona(String nombre, String apellidos, String cursoString) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        if (cursoString.equals("OTC1")) {
+            this.curso = Curso.OTC1;
+        } else if (cursoString.equals("OTC2")) {
+            this.curso = Curso.OTC2;
+        } else if (cursoString.equals("AML1")) {
+            this.curso = Curso.AML1;
+        } else if (cursoString.equals("DAM2")) {
+            this.curso = Curso.DAM2;
+        } else {
+            throw new CursoInvalidoException();
+        }
+    }
 
 
     @Override
@@ -20,9 +35,6 @@ public  class Persona  {
         this.curso = curso;
     }
 
-    public boolean esInteligente() {
-        return this.curso == Curso.DAM2;
-    }
     @Override
     public String toString() {
 
