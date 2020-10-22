@@ -55,3 +55,10 @@ Ejercicio 7.1.
 Una excepción es un recurso Java para detener la ejecución cuando se produce un error no esperado.
 ¿Cuál es el contenido de la traza de la pila de ejecución en una excepción cuando ésta salta?
     -Va desde donde salta a la pila mas alta,al main().
+
+Ejercicio 7.4
+-----------------------
+¿Qué es una sentencia try-catch?
+    -Una sentencia que hace mas robusto el codigo,y que puedes controlar excepciónes con ella.
+¿Qué sucede si introduces un curso por teclado que no es válido? Pega la salida de ejecución.
+    -Salta la excepción CursoInvalidoException
