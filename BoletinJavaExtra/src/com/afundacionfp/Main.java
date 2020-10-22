@@ -3,25 +3,24 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        ArrayList<String> personas = new ArrayList();
-        personas.add("Agustin Gutierrez Beira ");
-        personas.add("Jaime Gutierrez Beira");
-        personas.add("Laura Dominguez Caballero");
+        ArrayList<Persona> personas = new ArrayList<Persona>();
+        Persona personas1 = new Persona("Agustin","Gutierrez Beira");
+        Persona personas2 = new Persona("Jaime","Gutierrez Beira");
+        Persona personas3 = new Persona("Laura","Dominguez Caballero");
+        personas.add(personas1);
+        personas.add(personas2);
+        personas.add(personas3);
        // System.out.println(personas);
 
         /*
-        Persona arrPersona[] = new Persona[3];
-
-        arrPersona[0] = new Persona("Agustin","Gutierrez Beira");
-        arrPersona[1] = new Persona("Jaime","Gutierrez Beira");
-        arrPersona[2] = new Persona("Laura","Dominguez Caballero");
+        Persona arrPersona[] = new Persona[3]
 */
 
-        for (String p:personas)  {
-            if (personas.esInteligente(p)) {
-                System.out.println("La persona " + personas.toString() + " es inteligente.");
+        for (Persona p:personas)  {
+            if (p.esInteligente()) {
+                System.out.println("La persona " + p.toString() + " es inteligente.");
             } else {
-                System.out.println("La persona " + personas.toString() + " no es inteligente.");
+                System.out.println("La persona " + p.toString() + " no es inteligente.");
             }
         }
 
