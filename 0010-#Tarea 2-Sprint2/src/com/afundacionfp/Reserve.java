@@ -1,5 +1,8 @@
 package com.afundacionfp;
 
+import netscape.javascript.JSObject;
+import org.json.simple.JSONObject;
+
 public class Reserve {
     private Product product;
     private long reserveDate;
@@ -23,5 +26,12 @@ public class Reserve {
 
     public void setReserveDate(long reserveDate) {
         this.reserveDate = reserveDate;
+    }
+
+    public JSONObject toJSOn(){
+        JSONObject jsonObject=new JSONObject();
+        jsonObject.put("product", this.product);
+        jsonObject.put("reserveDate", this.reserveDate);
+        return jsonObject;
     }
 }

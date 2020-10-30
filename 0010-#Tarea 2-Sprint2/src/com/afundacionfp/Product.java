@@ -1,5 +1,7 @@
 package com.afundacionfp;
 
+import org.json.simple.JSONObject;
+
 public class Product {
     private String name;
     private String reference;
@@ -43,5 +45,17 @@ public class Product {
 
     public void setProductInfo(ProductInfo productInfo) {
         this.productInfo = productInfo;
+    }
+
+
+    public JSONObject toJSOn() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("name", this.name);
+        jsonObject.put("reference" ,this.reference);
+        jsonObject.put("imagenPath",this.imagePath);
+        if (productInfo !=null) {
+            jsonObject.put("productInfo", this.productInfo.toJSOn());
+        }
+        return jsonObject;
     }
 }

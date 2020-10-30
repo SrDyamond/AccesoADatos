@@ -21,7 +21,9 @@ public class Main extends Application {
     @Override
     public Restlet createInboundRoot() {
         Router router = new Router(getContext().createChildContext());
-        router.attach("/health-check", HealthCheckResource.class);
+        router.attach("/product", ProductResources.class);
+        router.attach("/product/{reference}", FullProductResources.class);
+       // router.attach("/{username}/reserve/{reference}", ReserveResource.class);
         return router;
     }
 }

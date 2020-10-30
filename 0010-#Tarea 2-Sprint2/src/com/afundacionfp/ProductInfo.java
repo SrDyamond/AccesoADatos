@@ -1,5 +1,7 @@
 package com.afundacionfp;
 
+import org.json.simple.JSONObject;
+
 public class ProductInfo {
 
         private String description;
@@ -33,6 +35,14 @@ public class ProductInfo {
 
         public void setAvailableAmount(int availableAmount) {
             this.availableAmount = availableAmount;
+        }
+
+        public JSONObject toJSOn(){
+        JSONObject jsonObject= new JSONObject();
+        jsonObject.put("description",this.description);
+        jsonObject.put("price",this.price);
+        jsonObject.put("availableAmount", this.availableAmount);
+        return jsonObject;
         }
 
 }
