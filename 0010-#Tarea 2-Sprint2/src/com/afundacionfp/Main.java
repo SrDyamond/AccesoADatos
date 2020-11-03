@@ -2,6 +2,8 @@ package com.afundacionfp;
 
 import org.restlet.*;
 import org.restlet.data.Protocol;
+import org.restlet.resource.Delete;
+import org.restlet.resource.Post;
 import org.restlet.routing.Router;
 
 public class Main extends Application {
@@ -23,7 +25,11 @@ public class Main extends Application {
         Router router = new Router(getContext().createChildContext());
         router.attach("/product", ProductResources.class);
         router.attach("/product/{reference}", FullProductResources.class);
-       // router.attach("/{username}/reserve/{reference}", ReserveResource.class);
+        router.attach("/{username}/reserve/{reference}?passwordSha={passwordSha}", ReserveResource.class);
+       // router.attach("/{username}/reserve/{reference}?passwordSha={passwordSha}", ReserveResource.class);
+      //  router.attach("/{username}/reserve/{reference}?passwordSha={passwordSha}", ReserveResource.class);
         return router;
     }
+
+
 }

@@ -1,6 +1,5 @@
 package com.afundacionfp;
 
-import org.json.simple.JSONArray;
 import org.restlet.resource.Get;
 import org.restlet.resource.ServerResource;
 

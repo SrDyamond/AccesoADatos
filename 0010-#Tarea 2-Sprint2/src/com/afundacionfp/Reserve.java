@@ -30,7 +30,7 @@ public class Reserve {
 
     public JSONObject toJSOn(){
         JSONObject jsonObject=new JSONObject();
-        jsonObject.put("product", this.product);
+        jsonObject.put("product", this.product.toJSOn());
         jsonObject.put("reserveDate", this.reserveDate);
         return jsonObject;
     }
