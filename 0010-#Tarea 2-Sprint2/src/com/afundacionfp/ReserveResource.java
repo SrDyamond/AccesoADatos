@@ -14,6 +14,7 @@ public class ReserveResource extends ServerResource {
         String username = (String) getRequest().getAttributes().get("username");
         String reference = (String) getRequest().getAttributes().get("reference");
         Form form = getRequest().getResourceRef().getQueryAsForm();
+
         String passwordSha = form.getFirstValue("passwordSha");
         if (passwordSha == null){
             return "No password provided";
