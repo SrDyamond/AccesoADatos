@@ -1,9 +1,10 @@
 package com.afundacionfp;
 
+import com.afundacionfp.resource.FullProductResources;
+import com.afundacionfp.resource.ProductResources;
+import com.afundacionfp.resource.ReserveResource;
 import org.restlet.*;
 import org.restlet.data.Protocol;
-import org.restlet.resource.Delete;
-import org.restlet.resource.Post;
 import org.restlet.routing.Router;
 
 public class Main extends Application {

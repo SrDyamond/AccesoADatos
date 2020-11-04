@@ -1,5 +1,7 @@
-package com.afundacionfp;
+package com.afundacionfp.resource;
 
+import com.afundacionfp.DataProvider;
+import com.afundacionfp.resource.MockDataProvider;
 import org.restlet.resource.Get;
 import org.restlet.resource.ServerResource;
 

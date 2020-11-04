@@ -1,4 +1,9 @@
-package com.afundacionfp;
+package com.afundacionfp.resource;
+
+import com.afundacionfp.DataProvider;
+import com.afundacionfp.Product;
+import com.afundacionfp.ProductInfo;
+import com.afundacionfp.Reserve;
 
 import java.util.ArrayList;
 import java.util.List;
