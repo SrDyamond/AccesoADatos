@@ -26,8 +26,6 @@ public class Main extends Application {
         router.attach("/product", ProductResources.class);
         router.attach("/product/{reference}", FullProductResources.class);
         router.attach("/{username}/reserve/{reference}", ReserveResource.class);
-       // router.attach("/{username}/reserve/{reference}?passwordSha={passwordSha}", ReserveResource.class);
-      //  router.attach("/{username}/reserve/{reference}?passwordSha={passwordSha}", ReserveResource.class);
         return router;
     }
 

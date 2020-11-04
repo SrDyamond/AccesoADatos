@@ -22,7 +22,7 @@ public class ReserveResource extends ServerResource {
 
         return dataProvider.getReserve(reference,username,passwordSha).toJSOn().toString();
     }
-    /*
+
     @Post
     public String postReserve(){
         return "No implementado en esta versión";
@@ -31,6 +31,6 @@ public class ReserveResource extends ServerResource {
     public  String deleteReserve(){
         return  "Non implementado en esta versión";
     }
-    */
+
 
 }
