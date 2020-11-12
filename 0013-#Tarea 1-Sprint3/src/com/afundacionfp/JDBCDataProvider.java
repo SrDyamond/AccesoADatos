@@ -74,11 +74,12 @@ public class JDBCDataProvider implements DataProvider {
                     Concatenaremos el salt de la base de datos al passwordSha recibido por parámetro. Obtendremos un String de 80 caracteres.
                     Calcularemos el hash Sha de dicho String. Puedes ver un ejemplo aquí.
                     // IMPORTANTE: Para saber el esquema de la TablaReservas, mira la siguiente tarea.
-
                     */
-                    String name = resultSet.getString(1);
+                   // String name = resultSet.getString(1);
+                    String passSha1 =resultSet.getString(4);
                     String salts = resultSet.getString(5);
-
+                    String concate=salts+passSha1;
+                    sha1FromString(concate);
 
                     System.out.println("Autenticacion OK");
                 } else {
