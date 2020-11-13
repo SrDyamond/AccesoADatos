@@ -69,24 +69,12 @@ public class JDBCDataProvider implements DataProvider {
                 String concatenatedString = salt + passwordSha;
                 if (databaseConcatenatedStringSha.equals(sha1FromString(concatenatedString))) {
                     // TODO: Realizar consultas sobre TablaReservas y TablaCamiones.
-                   /* Recuperar la fila de la TablaClientes donde el username en nuestro código corresponda con la columna 1 sacada de la base de datos.
-                    Si existe la fila, extraeremos los datos salt y contrasenaSha1, es decir, las columnas 5 y 4.
-                    Concatenaremos el salt de la base de datos al passwordSha recibido por parámetro. Obtendremos un String de 80 caracteres.
-                    Calcularemos el hash Sha de dicho String. Puedes ver un ejemplo aquí.
-                    // IMPORTANTE: Para saber el esquema de la TablaReservas, mira la siguiente tarea.
-                    */
-                   // String name = resultSet.getString(1);
-                    String passSha1 =resultSet.getString(4);
-                    String salts = resultSet.getString(5);
-                    String concate=salts+passSha1;
-                    sha1FromString(concate);
 
-                    System.out.println("Autenticacion OK");
+                    return "Reserve";
                 } else {
                     // TODO: Devolver error.
                     System.out.println("KO");
                 }
-                return null;
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
