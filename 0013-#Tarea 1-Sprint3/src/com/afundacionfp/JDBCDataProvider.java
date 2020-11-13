@@ -69,6 +69,9 @@ public class JDBCDataProvider implements DataProvider {
                 String concatenatedString = salt + passwordSha;
                 if (databaseConcatenatedStringSha.equals(sha1FromString(concatenatedString))) {
                     // TODO: Realizar consultas sobre TablaReservas y TablaCamiones.
+                    String sql2 = "SELECT TablaCamiones.nombre,TablaReservas.fecha  FROM TablaCamiones " +
+                            " INNER JOIN TablaReservas ON TablaCamiones.referencia=TablaReservas.refCamion " +
+                            "WHERE TablaCamiones.referencia = '" + reference + "'";
 
                     return "Reserve";
                 } else {
