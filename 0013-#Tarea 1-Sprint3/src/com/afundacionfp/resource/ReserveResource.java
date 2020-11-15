@@ -3,6 +3,7 @@ package com.afundacionfp.resource;
 
 import com.afundacionfp.DataProvider;
 import com.afundacionfp.JDBCDataProvider;
+import com.afundacionfp.Reserve;
 import com.afundacionfp.resource.MockDataProvider;
 import org.restlet.data.Form;
 import org.restlet.resource.Delete;
@@ -26,9 +27,11 @@ public class ReserveResource extends ServerResource {
         return dataProvider.getReserve(reference,username,passwordSha).toJSOn().toString();
     }
 
-    @Post
-    public String postReserve(){
-        return "No implementado en esta versión";
+    public String postReserveResource() {
+
+
+
+        return "Non implementado en esta version";
     }
     @Delete
     public  String deleteReserve(){
