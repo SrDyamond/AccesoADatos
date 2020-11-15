@@ -59,30 +59,39 @@ public class JDBCDataProvider implements DataProvider {
     @Override
     public Reserve getReserve(String reference, String username, String passwordSha) {
         try {
+            // Se establece conexión con la database indicada
             Connection connection = DriverManager.getConnection("jdbc:mysql://gitlab.afundacionfp.com:3306/mysql?serverTimezone=Europe/Madrid", "developer", "pass");
+            // Se crea una instancia con la que podremos ejecutar las query
             Statement statement = connection.createStatement();
+            // Se define la query para getReserve
             String sql = "SELECT * FROM TablaClientes WHERE usuario = '" + username + "'";
+            // Se obtiene el resultado de la query
             ResultSet resultSet = statement.executeQuery(sql);
+            // Objeto Reserve al que se asignarán los datos obtenidos en la database
+            Reserve leReserve = null;
+
             while (resultSet.next()) {
+                // Se obtiene en forma de String el valor de la columna especificada de la tupla actual
                 String salt = resultSet.getString(5);
                 String databaseConcatenatedStringSha = resultSet.getString(4);
+                // Se concatenan los resultados anteriores
                 String concatenatedString = salt + passwordSha;
+                // Cond: valor columna 4 = bytes cifrados de la concatenacion de la columna 5 + passwordSha
                 if (databaseConcatenatedStringSha.equals(sha1FromString(concatenatedString))) {
-                    // TODO: Realizar consultas sobre TablaReservas y TablaCamiones.
-                    String sql2 = "SELECT TablaCamiones.nombre,TablaReservas.fecha  FROM TablaCamiones " +
-                            " INNER JOIN TablaReservas ON TablaCamiones.referencia=TablaReservas.refCamion " +
-                            "WHERE TablaCamiones.referencia = '" + reference + "'";
-
-                    return "Reserve";
+                    // Se realizan consultas sobre TablaReservas y TablaCamiones
+                    leReserve = getReserveInfo(reference);
+                    System.out.println("Autenticación OK");
                 } else {
                     // TODO: Devolver error.
                     System.out.println("KO");
                 }
+                return leReserve;
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
         return null;
+
     }
 
 
@@ -95,6 +104,32 @@ public class JDBCDataProvider implements DataProvider {
         } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
             e.printStackTrace();
         }
+        return null;
+    }
+    private Reserve getReserveInfo(String id) throws SQLException {
+        Connection connection = DriverManager.getConnection("jdbc:mysql://gitlab.afundacionfp.com:3306/mysql?serverTimezone=Europe/Madrid", "developer", "pass");
+        Statement statement = connection.createStatement();
+
+        String sql = "SELECT * from TablaReservas where id = " + id;
+        System.out.println(sql);
+        ResultSet resultSet = statement.executeQuery(sql);
+
+        while (resultSet.next()) {
+            String refCamion = resultSet.getString(3);
+            Date fecha = resultSet.getDate(4);
+
+            System.out.println("Información de la reserva con id = " + id);
+            System.out.println("Referencia del camión reservado: " + refCamion);
+            System.out.println("Fecha de la reserva: " + fecha);
+
+            Product product = getFullProduct(refCamion);
+            Reserve reservation = new Reserve(product, fecha.getTime());
+
+            return reservation;
+        }
+
+
+
         return null;
     }
 
