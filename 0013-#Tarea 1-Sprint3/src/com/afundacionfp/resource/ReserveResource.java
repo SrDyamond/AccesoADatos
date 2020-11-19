@@ -26,8 +26,8 @@ public class ReserveResource extends ServerResource {
 
         return dataProvider.getReserve(reference,username,passwordSha).toJSOn().toString();
     }
-
-    public String createReserve() {
+    @Post
+    public void createReserve() {
         JDBCDataProvider dataProvider = new JDBCDataProvider();
         String username = (String) getRequest().getAttributes().get("username");
         String reference = (String) getRequest().getAttributes().get("reference");
@@ -35,14 +35,11 @@ public class ReserveResource extends ServerResource {
 
         String passwordSha = form.getFirstValue("passwordSha");
         if (passwordSha == null){
-            return "No password provided";
+
         }
-
-
-        return "Non implementado en esta version";
     }
     @Delete
-    public  String removeReserve(){
+    public  void removeReserve(){
         JDBCDataProvider dataProvider = new JDBCDataProvider();
         String username = (String) getRequest().getAttributes().get("username");
         String reference = (String) getRequest().getAttributes().get("reference");
@@ -50,9 +47,7 @@ public class ReserveResource extends ServerResource {
 
         String passwordSha = form.getFirstValue("passwordSha");
         if (passwordSha == null){
-            return "No password provided";
         }
-        return  "Non implementado en esta versión";
     }
 
 
