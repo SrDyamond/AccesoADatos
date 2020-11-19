@@ -191,11 +191,75 @@ public class JDBCDataProvider implements DataProvider {
 
     @Override
     public void createReserve(String reference, String username, String passwordSha) {
-
+        try {
+            // Autenticación
+            Connection connection = DriverManager.getConnection("jdbc:mysql://gitlab.afundacionfp.com:3306/mysql?serverTimezone=Europe/Madrid", "developer", "pass");
+            Statement statement = connection.createStatement();
+            String sql = "SELECT * FROM TablaClientes WHERE usuario = '" + username + "'";
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                String salt = resultSet.getString(5);
+                String databaseConcatenatedStringSha = resultSet.getString(4);
+                String concatenatedString = salt + passwordSha;
+                String sha1 = sha1FromString(concatenatedString);
+                if (databaseConcatenatedStringSha.equals(sha1)) {
+                    // Si la autenticación es exitosa, lanzamos una sentencia INSERT como la especificada al final en
+                    // https://gitlab.afundacionfp.com/data/acceso-a-datos/-/wikis/Tablas-de-la-base-de-datos-de-Monster-Trucks
+                    String sql2 = "INSERT INTO TablaReservas(idCliente, refCamion) VALUES('" + username + "', '" + reference + "')";
+                    // Usamos 'executeUpdate' en lugar de 'executeQuery', porque actualizamos la tabla
+                    int rowsAffected = statement.executeUpdate(sql2);
+                    if (rowsAffected == 1) {
+                        return;
+                        // Éxito
+                    } else {
+                        // Sería conveniente lanzar una excepción en este caso y devolver un código de error apropiado
+                    }
+                } else {
+                    // Sería conveniente lanzar una excepción en este caso y devolver un código de error apropiado
+                }
+            }
+            // Sería conveniente lanzar una excepción en este caso y devolver un código de error apropiado
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        // Sería conveniente lanzar una excepción en este caso y devolver un código de error apropiado
     }
+
 
     @Override
     public void removeReserve(String reference, String username, String passwordSha) {
-
+        try {
+            // Autenticación
+            Connection connection = DriverManager.getConnection("jdbc:mysql://gitlab.afundacionfp.com:3306/mysql?serverTimezone=Europe/Madrid", "developer", "pass");
+            Statement statement = connection.createStatement();
+            String sql = "SELECT * FROM TablaClientes WHERE usuario = '" + username + "'";
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                String salt = resultSet.getString(5);
+                String databaseConcatenatedStringSha = resultSet.getString(4);
+                String concatenatedString = salt + passwordSha;
+                String sha1 = sha1FromString(concatenatedString);
+                if (databaseConcatenatedStringSha.equals(sha1)) {
+                    // Si la autenticación es exitosa, lanzamos una sentencia INSERT como la especificada al final en
+                    // https://gitlab.afundacionfp.com/data/acceso-a-datos/-/wikis/Tablas-de-la-base-de-datos-de-Monster-Trucks
+                    String sql2 = "DELETE FROM TablaReservas WHERE (idCliente = '" + username + "') AND (refCamion = '" + reference + "')";
+                    // Usamos 'executeUpdate' en lugar de 'executeQuery', porque actualizamos la tabla
+                    int rowsAffected = statement.executeUpdate(sql2);
+                    if (rowsAffected > 0) {
+                        return;
+                        // Éxito
+                    } else {
+                        // Sería conveniente lanzar una excepción en este caso y devolver un código de error apropiado
+                    }
+                } else {
+                    // Sería conveniente lanzar una excepción en este caso y devolver un código de error apropiado
+                }
+            }
+            // Sería conveniente lanzar una excepción en este caso y devolver un código de error apropiado
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        // Sería conveniente lanzar una excepción en este caso y devolver un código de error apropiado
     }
+
 }
