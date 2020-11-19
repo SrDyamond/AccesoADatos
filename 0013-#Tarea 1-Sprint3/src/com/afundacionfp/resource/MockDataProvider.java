@@ -20,6 +20,11 @@ class MockDataProvider implements DataProvider {
     }
 
     @Override
+    public Reserve getReserve(String reference, String username, String passwordSha) {
+        return null;
+    }
+
+    @Override
     public Product getFullProduct(String reference) {
         ProductInfo info = new ProductInfo("Producto de ejemplo", 9999, 5);
         Product product = new Product("Producto", "N/A", "/images/producto.jpg", info);
@@ -28,13 +33,12 @@ class MockDataProvider implements DataProvider {
     }
 
     @Override
-    public Reserve getReserve(String reference, String username, String passwordSha) {
-        ProductInfo info = new ProductInfo("Producto de ejemplo", 9999, 5);
-        Product product = new Product("Producto", "N/A", "/images/producto.jpg", info);
-        Reserve reserve = new Reserve(product, (new java.util.Date()).getTime());
-
-        return reserve;
+    public List<Reserve> getReserves(String username, String passwordSha) {
+        // TODO: Devolver una lista de reservas si en algún momento se quiere usar
+        // MockDataProvider para probar
+        return null;
     }
+
 
     @Override
     public void createReserve(String reference, String username, String passwordSha) { }

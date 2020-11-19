@@ -3,6 +3,7 @@ package com.afundacionfp;
 import com.afundacionfp.resource.FullProductResources;
 import com.afundacionfp.resource.ProductResources;
 import com.afundacionfp.resource.ReserveResource;
+import com.afundacionfp.resource.ReserverListResource;
 import org.restlet.*;
 import org.restlet.data.Protocol;
 import org.restlet.routing.Router;
@@ -26,6 +27,7 @@ public class Main extends Application {
         Router router = new Router(getContext().createChildContext());
         router.attach("/product", ProductResources.class);
         router.attach("/product/{reference}", FullProductResources.class);
+        router.attach("/{username}/reserve", ReserverListResource.class);
         router.attach("/{username}/reserve/{reference}", ReserveResource.class);
         return router;
     }

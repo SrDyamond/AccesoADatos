@@ -5,6 +5,8 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -132,6 +134,59 @@ public class JDBCDataProvider implements DataProvider {
 
         return null;
     }
+
+    @Override
+    public List<Reserve> getReserves(String username, String passwordSha) {
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://gitlab.afundacionfp.com:3306/mysql?serverTimezone=Europe/Madrid", "developer", "pass");
+            Statement statement = connection.createStatement();
+            String sql = "SELECT * FROM TablaClientes WHERE usuario = '" + username + "'";
+            ResultSet resultSet = statement.executeQuery(sql);
+            // Este bucle itera sobre las filas de la respuesta de la base de datos
+            while (resultSet.next()) {
+                // Las dos siguientes líneas recuperan el 'salt' y el 'hash' almacenados en base de datos
+                String salt = resultSet.getString(5);
+                String databaseConcatenatedStringSha = resultSet.getString(4);
+                // Aquí concatenamos el 'salt' al 'passwordSha' que nos han pasado en la petición HTTP
+                String concatenatedString = salt + passwordSha;
+                // En la siguiente línea calculamos el SHA-1 de dicha concatenación.
+                String sha1 = sha1FromString(concatenatedString);
+                // Comprobamos si coincide con el 'hash' almacenado en base de datos (autenticación)
+                if (databaseConcatenatedStringSha.equals(sha1)) {
+                    // En caso de que coincida, lanzamos la siguiente consulta para obtener todas las reservas
+                    String sql2 = "SELECT * FROM TablaReservas WHERE idCliente = '" + username + "'";
+                    ResultSet resultSet2 = statement.executeQuery(sql2);
+                    List<Reserve> reserveList = new ArrayList<>();
+                    // Iteramos sobre los resultados
+                    while (resultSet2.next()) {
+                        // La siguiente línea recupera el dato fechaReserva de la columna indicada
+                        // Este dato viene como un String que tendremos que 'interpretar'
+                        String dateString = resultSet2.getString(4);
+                        // Con las siguientes líneas transformamos ese String en un objeto Date.
+                        // Después, con ese 'date' obtenemos el timestamp (long) que representa
+                        // los segundos desde 1/1/1970
+                        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                        java.util.Date date = formatter.parse(dateString);
+                        long dateTimestamp = date.getTime();
+                        // A continuación, reutilizamos el método getFullProduct(String reference) para
+                        // recuperar de la base de datos la información del producto reservado
+                        String reference = resultSet2.getString(3);
+                        Product fullProduct = getFullProduct(reference);
+                        Reserve reserve = new Reserve(fullProduct, dateTimestamp);
+                        reserveList.add(reserve);
+                    }
+                    return reserveList;
+                } else {
+                    return null;
+                }
+            }
+            return null;
+        } catch (SQLException | ParseException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+    }
+
 
 
     @Override
