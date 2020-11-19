@@ -1,5 +1,11 @@
 package com.afundacionfp;
 
+import com.afundacionfp.resource.HttpExceptionCode;
+import com.sun.net.httpserver.Authenticator;
+import org.restlet.Response;
+import org.restlet.data.MediaType;
+import org.restlet.data.Status;
+
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -209,9 +215,10 @@ public class JDBCDataProvider implements DataProvider {
                     // Usamos 'executeUpdate' en lugar de 'executeQuery', porque actualizamos la tabla
                     int rowsAffected = statement.executeUpdate(sql2);
                     if (rowsAffected == 1) {
-                        return;
-                        // Éxito
+                        throw new HttpExceptionCode(200);
                     } else {
+                        System.out.println("Autentificación fallida");
+                        throw new HttpExceptionCode(401);
                         // Sería conveniente lanzar una excepción en este caso y devolver un código de error apropiado
                     }
                 } else {
@@ -219,11 +226,13 @@ public class JDBCDataProvider implements DataProvider {
                 }
             }
             // Sería conveniente lanzar una excepción en este caso y devolver un código de error apropiado
-        } catch (SQLException throwables) {
+        } catch (SQLException | HttpExceptionCode throwables) {
             throwables.printStackTrace();
         }
         // Sería conveniente lanzar una excepción en este caso y devolver un código de error apropiado
     }
+
+
 
 
     @Override
