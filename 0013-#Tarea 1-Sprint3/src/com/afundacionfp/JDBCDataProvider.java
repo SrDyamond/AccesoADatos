@@ -211,7 +211,7 @@ public class JDBCDataProvider implements DataProvider {
                     // Usamos 'executeUpdate' en lugar de 'executeQuery', porque actualizamos la tabla
                     int rowsAffected = statement.executeUpdate(sql2);
                     if (rowsAffected == 1) {
-                        System.out.println("OK");
+                        System.out.println("OK,creado");
                         throw new HttpExceptionCode(201);
                     } else {
                         System.out.println("Autentificación fallida");
