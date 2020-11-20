@@ -222,6 +222,7 @@ public class JDBCDataProvider implements DataProvider {
                     throw new HttpExceptionCode(404);
                 }
             }
+            System.out.println("Inaccesible por temas legales");
             throw new HttpExceptionCode(418);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -232,7 +233,7 @@ public class JDBCDataProvider implements DataProvider {
 
 
     @Override
-    public void removeReserve(String reference, String username, String passwordSha) {
+    public void removeReserve(String reference, String username, String passwordSha) throws HttpExceptionCode{
         try {
             // Autenticación
             Connection connection = DriverManager.getConnection("jdbc:mysql://gitlab.afundacionfp.com:3306/mysql?serverTimezone=Europe/Madrid", "developer", "pass");
@@ -251,21 +252,23 @@ public class JDBCDataProvider implements DataProvider {
                     // Usamos 'executeUpdate' en lugar de 'executeQuery', porque actualizamos la tabla
                     int rowsAffected = statement.executeUpdate(sql2);
                     if (rowsAffected > 0) {
-                        System.out.println("Tabla actualizada");
-                        return;
+                        System.out.println("OK,Fila eliminada");
+                        throw new HttpExceptionCode(200);
                         // Éxito
                     } else {
-                        // Sería conveniente lanzar una excepción en este caso y devolver un código de error apropiado
+                        System.out.println("Autentificación fallida");
+                        throw new HttpExceptionCode(401);
                     }
                 } else {
-                    // Sería conveniente lanzar una excepción en este caso y devolver un código de error apropiado
+                    System.out.println("Not Found");
+                    throw new HttpExceptionCode(404);
                 }
             }
-            // Sería conveniente lanzar una excepción en este caso y devolver un código de error apropiado
+            System.out.println("Inaccesible por temas legales");
+            throw new HttpExceptionCode(418);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        // Sería conveniente lanzar una excepción en este caso y devolver un código de error apropiado
     }
 
 }

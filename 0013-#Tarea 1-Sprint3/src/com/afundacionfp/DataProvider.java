@@ -20,5 +20,5 @@ public interface DataProvider {
     void createReserve(String reference, String username, String passwordSha) throws HttpExceptionCode;
 
     // Cancelar la reserva de un producto.
-    void removeReserve(String reference, String username, String passwordSha);
+    void removeReserve(String reference, String username, String passwordSha) throws HttpExceptionCode;
 }
