@@ -1,5 +1,7 @@
 package com.afundacionfp;
 
+import com.afundacionfp.exception.HttpExceptionCode;
+
 import java.util.List;
 
 public interface DataProvider {
@@ -15,7 +17,7 @@ public interface DataProvider {
     List<Reserve> getReserves(String username, String passwordSha);
 
     // Crear una reserva para un producto.
-    void createReserve(String reference, String username, String passwordSha);
+    void createReserve(String reference, String username, String passwordSha) throws HttpExceptionCode;
 
     // Cancelar la reserva de un producto.
     void removeReserve(String reference, String username, String passwordSha);

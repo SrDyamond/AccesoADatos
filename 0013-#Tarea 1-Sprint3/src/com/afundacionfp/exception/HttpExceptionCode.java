@@ -1,4 +1,4 @@
-package com.afundacionfp.resource;
+package com.afundacionfp.exception;
 
 public class HttpExceptionCode extends Exception{
     private int errorCode;
