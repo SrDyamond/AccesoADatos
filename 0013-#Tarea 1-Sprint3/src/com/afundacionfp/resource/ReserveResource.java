@@ -27,7 +27,7 @@ public class ReserveResource extends ServerResource {
         return dataProvider.getReserve(reference,username,passwordSha).toJSOn().toString();
     }
     @Post
-    public Response postReserve() {
+    public Response createReserve() {
         String username = (String) getRequest().getAttributes().get("username");
         String reference = (String) getRequest().getAttributes().get("reference"); // obtenemos la referencia
         Form form = getRequest().getResourceRef().getQueryAsForm();
@@ -40,7 +40,7 @@ public class ReserveResource extends ServerResource {
             dataProvider.createReserve(reference, username, passwordSha);
         } catch (HttpExceptionCode e) {
             switch (e.getErrorCode()) {
-                case 200:
+                case 201:
                     response.setStatus(Status.SUCCESS_CREATED);
                     return response;
                 case 401:
@@ -72,11 +72,11 @@ public class ReserveResource extends ServerResource {
         if (passwordSha == null) {
         }
         try {
-            dataProvider.createReserve(reference, username, passwordSha);
+            dataProvider.removeReserve(reference, username, passwordSha);
         } catch (HttpExceptionCode e) {
             switch (e.getErrorCode()) {
                 case 200:
-                    response.setStatus(Status.SUCCESS_CREATED);
+                    response.setStatus(Status.SUCCESS_OK);
                     return response;
                 case 204:
                     response.setStatus(Status.SUCCESS_NO_CONTENT);
